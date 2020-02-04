@@ -31,7 +31,7 @@ You may see comments at the top of files indicating whether you should avoid or 
 ## Adding a Package
 
 ​
-Feel free to add any npm packages you need e.g. yarn add dompurify. If you add a package, you should not have to restart the dev server.
+Feel free to add any npm packages you need e.g. `yarn add dompurify`. If you add a package, you should not have to restart the dev server.
 ​
 
 ## End Result
