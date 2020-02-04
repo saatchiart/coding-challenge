@@ -1,0 +1,29 @@
+{
+  "name": "saatchi-code-challenge",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Matthew Otto <matt@ottoinfo.com> (http://ottoinfo.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1",
+    "marked": "^0.8.0",
+    "next": "^9.2.1",
+    "next-redux-wrapper": "^4.0.1",
+    "polished": "^3.4.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.0.0"
+  },
+  "scripts": {
+    "dev": "yarn && node server.js",
+    "build": "next build"
+  }
+}
