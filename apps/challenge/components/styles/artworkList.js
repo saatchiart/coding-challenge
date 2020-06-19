@@ -16,4 +16,7 @@ export const ArtworkList = styled.div`
   }
 `;
 
-export const ListItems = styled.div``;
+export const ListItems = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;

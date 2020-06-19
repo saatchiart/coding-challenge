@@ -4,8 +4,9 @@
 
 import React from "react";
 import styled from "styled-components";
-
-import MyConnector from "../connectors/MyConnector";
+import { connect } from "react-redux";
+import { makeFavorite, unsetFavorite } from "../../../actions";
+//import MyConnector from "../connectors/MyConnector";
 
 import {
   ArtworkItem,
@@ -15,11 +16,15 @@ import {
   Info,
   Row,
   SubText,
-  Title
+  Title,
 } from "./styles/artworkItem";
 
-export default props => {
-  const { data } = props;
+export const ArtworkItemComponent = ({
+  makeFavorite,
+  unsetFavorite,
+  data,
+  isFavorited,
+}) => {
   if (!data) {
     return <p>Please set ArtworkItems into a attribute of `data`</p>;
   }
@@ -33,14 +38,18 @@ export default props => {
     artist,
     dimensions,
     category,
-    product
+    product,
   } = data;
-  const isFavorited = false;
+  const onFavoriteClick = isFavorited ? unsetFavorite : makeFavorite;
   return (
     <ArtworkItem>
       <ImageWrapper>
         <img src={imageUrl} />
-        <Favicon isFavorited={isFavorited} className="fa fa-heart" />
+        <Favicon
+          isFavorited={isFavorited}
+          className="fa fa-heart"
+          onClick={() => onFavoriteClick(artId)}
+        />
       </ImageWrapper>
       <Info>
         <Title>
@@ -77,3 +86,17 @@ export default props => {
     </ArtworkItem>
   );
 };
+
+const mapStateToProps = ({ favorites }, { data }) => ({
+  isFavorited: favorites.includes(data.artId),
+});
+
+const mapDispatchToProps = {
+  makeFavorite,
+  unsetFavorite,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ArtworkItemComponent);

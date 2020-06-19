@@ -5,6 +5,8 @@
 import styled from "styled-components";
 
 export const ArtworkItem = styled.div`
+  flex: 1 0 21%; 
+  margin: 5px;
   background: #fff;
   border: ${props => props.theme.space[2]}px;
   padding: ${props => props.theme.space[3]}px;

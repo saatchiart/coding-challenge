@@ -5,8 +5,10 @@
 import React from "react";
 
 import { Search, SVG, Input, Mag } from "./styles";
+import { filterArtworks } from "../../../actions";
+import { connect } from "react-redux";
 
-export default () => {
+export const SearchComponent = ({ search, filterArtworks }) => {
   return (
     <Search>
       <SVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 8">
@@ -15,9 +17,24 @@ export default () => {
         </g>
       </SVG>
 
-      <Input type="text" placeholder="Search Artworks" />
+      <Input
+        type="text"
+        placeholder="Search Artworks"
+        value={search}
+        onChange={(event) => filterArtworks(event.target.value)}
+      />
 
       <Mag src="/img/mag.svg" />
     </Search>
   );
 };
+
+const mapStateToProps = ({ search }) => ({
+  search,
+});
+
+const mapDispatchToProps = {
+  filterArtworks,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchComponent);
