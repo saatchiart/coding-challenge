@@ -10,7 +10,7 @@
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "isomorphic-fetch": "^2.2.1",
-    "marked": "^0.8.0",
+    "marked": "^4.0.10",
     "next": "^9.2.1",
     "next-redux-wrapper": "^4.0.1",
     "polished": "^3.4.4",
